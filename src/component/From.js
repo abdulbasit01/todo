@@ -8,10 +8,9 @@ class AddToDo extends Component {
          }
     }
     handleChange=(e)=>{
-        console.log(this.state.content)
-       return e.target.value.trim().length !==0 ? this.setState({
+        this.setState({
             content:e.target.value
-        }) : alert('put some thing') 
+        })
     }
     handleSubmit=(e)=>{
         e.preventDefault()

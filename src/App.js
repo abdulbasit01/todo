@@ -6,10 +6,11 @@ class App extends Component {
     super(props);
     this.state = { 
       todo:[
-        {id:1,content:"wake up"},
-        {id:2,content:"go to the walk"},
-        {id:3,content:"go to the office"}
-      ]
+        {id:1,content:"wake up",color:"grey",textDecoration:""},
+        {id:2,content:"go to the walk" ,color:"grey",textDecoration:""},
+        {id:3,content:"go to the office" ,color:"grey",textDecoration:""}
+      ],
+      
      }
   }
   deleteItem=(id)=>{
@@ -27,16 +28,29 @@ class App extends Component {
     
   }
   updateItem=(id)=>{
-    console.log(id)
+    // console.log(id)
     let value=prompt("enter task you want to change")
     const todo =this.state.todo.filter(todo=>{
       return todo.id === id
     })
     this.state.todo.forEach(Element=> Element.id===id ? Element.content=value : null)
-    console.log(this.state)
+    // console.log(this.state)
     this.setState({
       todo:this.state.todo
     })
+  }
+  completed=(id)=>{
+    
+    const todo =this.state.todo.filter(todo=>{
+      return todo.id === id
+    })
+    this.state.todo.forEach(Element=> Element.id===id ? (Element.color="red", Element.textDecoration="line-through") : null)
+    // console.log(this.state)
+    this.setState({
+      todo:this.state.todo
+    })
+    
+
   }
   
   render() { 
@@ -45,7 +59,7 @@ class App extends Component {
       <React.Fragment>
         <div className="todo-app container">
           <h1 className="center blue-text">ToDos</h1>
-          <Todo todos={this.state.todo} deleteItem={this.deleteItem} updateItem={this.updateItem} style={this.style}/>
+          <Todo todos={this.state.todo} deleteItem={this.deleteItem} updateItem={this.updateItem} complete={this.completed}/ >
           <AddToDo AddToDo={this.AddToDo}/>
         </div>
       </React.Fragment>

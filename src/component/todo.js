@@ -1,17 +1,17 @@
 import React from 'react';
 import "./style.css"
 
-const Todos=({todos,deleteItem,updateItem}) =>{
+const Todos=({todos,deleteItem,updateItem,complete}) =>{
     
     const todoList=todos.length ? (
         todos.map(todo=>{
             return(
                 <div className="collection-item center " key={todo.id}>
-                    <i  onClick={()=>{deleteItem(todo.id)}} className="fas fa-trash-alt customDiv"></i>
+                    <i  onClick={()=>{deleteItem(todo.id)}} className="fas fa-trash-alt customDiv" ></i>
                     <br/>
-                    <i className="fas fa-user-circle customDiv"></i>
+                    <i className="fas fa-user-circle customDiv" onClick={()=>{complete(todo.id)}}></i>
 
-                    <span> {todo.content} </span> 
+                    <span style={{color:todo.color,textDecoration:todo.textDecoration}} > {todo.content} </span> 
                     <i className="fas fa-user-edit customDiv" onClick={()=>{updateItem(todo.id)}}></i>
                     
                 </div>
