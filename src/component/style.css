@@ -1,0 +1,12 @@
+.customDiv{
+    display: flex;
+    
+}
+
+.span{
+    color:green
+}
+.span2{
+    color:red;
+    text-decoration: overline;
+}
