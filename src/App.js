@@ -7,7 +7,8 @@ class App extends Component {
     this.state = { 
       todo:[
         {id:1,content:"wake up"},
-        {id:2,content:"go to the walk"}
+        {id:2,content:"go to the walk"},
+        {id:3,content:"go to the office"}
       ]
      }
   }
