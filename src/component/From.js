@@ -11,7 +11,7 @@ class AddToDo extends Component {
         console.log(this.state.content)
        return e.target.value.trim().length !==0 ? this.setState({
             content:e.target.value
-        },console.log(e.target.value.trim().length)) : alert('') 
+        }) : alert('put some thing') 
     }
     handleSubmit=(e)=>{
         e.preventDefault()

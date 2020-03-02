@@ -26,6 +26,18 @@ class App extends Component {
     this.setState({todo:todos})
     
   }
+  updateItem=(id)=>{
+    console.log(id)
+    let value=prompt("enter task you want to change")
+    const todo =this.state.todo.filter(todo=>{
+      return todo.id === id
+    })
+    this.state.todo.forEach(Element=> Element.id===id ? Element.content=value : null)
+    console.log(this.state)
+    this.setState({
+      todo:this.state.todo
+    })
+  }
   
   render() { 
     
